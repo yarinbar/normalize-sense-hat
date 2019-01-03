@@ -2,6 +2,7 @@
 from sense_hat import SenseHat
 from math import sin
 from math import cos
+import sys
 
 sense = SenseHat()
 
@@ -104,3 +105,13 @@ def run(sensitivity, color, background_color):
     except MemoryError:
         print("memory error")
 
+def main():
+    green = [0, 255, 0]
+    black = [0, 0, 0]
+    sensitivity = sys.argv[1]
+
+    run(sensitivity, green, black)
+
+
+
+main()
