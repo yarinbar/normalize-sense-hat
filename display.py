@@ -1,7 +1,6 @@
 
 from sense_hat import SenseHat
-from math import sin
-from math import cos
+from math import cos, sin
 import sys
 
 sense = SenseHat()
@@ -102,8 +101,10 @@ def run(sensitivity, color, background_color):
         sense.clear()
     except ArithmeticError:
         print("there was an arithmetic error")
+        sense.clear()
     except MemoryError:
         print("memory error")
+        sense.clear()
 
 
 
