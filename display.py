@@ -43,8 +43,8 @@ def findLegalPosition(position):
 
 def getAccel():
     accel = sense.get_accelerometer_raw()
-    x = accel["x"]
-    y = accel["y"]
+    x = round(accel["x"], 1)
+    y = round(accel["y"], 1)
 
     '''
     minus sign is for depicting the acceleration the person
