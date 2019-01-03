@@ -103,3 +103,4 @@ def run(sensitivity, color, background_color):
         print("there was an arithmetic error")
     except MemoryError:
         print("memory error")
+
