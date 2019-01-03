@@ -63,8 +63,10 @@ def showBalancePoint(sensitivity, color, background_color):
     4 - shows from -0.25(m/s^2) to 0.25(m/s^2)
     8 - shows from -0.5(m/s^2) to 0.5(m/s^2)
     '''
-    col = int(accel["x"] * sensitivity)
-    row = int(accel["y"] * sensitivity)
+    x = accel["x"]
+    y = accel["y"]
+    col = int(x * sensitivity)
+    row = int(y * sensitivity)
 
     # sets the center of the board as the 0 point
     col = col + 3
