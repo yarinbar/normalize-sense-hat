@@ -40,33 +40,21 @@ def findLegalPosition(position):
     return position
 
 
-def getAccel():
-    accel = sense.get_accelerometer_raw()
-    x = round(accel["x"], 1)
-    y = round(accel["y"], 1)
-
-    '''
-    minus sign is for depicting the acceleration the person
-    inside the accelerating system is experiencing
-    '''
-    res = {"x": -x, "y": -y}
-
-    return res
 
 
 def showBalancePoint(sensitivity, color, background_color):
 
-    accel = getAccel()
+    accel = sense.get_accelerometer_raw()
 
     '''
     recommended setting is between 4 and 8
     4 - shows from -0.25(m/s^2) to 0.25(m/s^2)
     8 - shows from -0.5(m/s^2) to 0.5(m/s^2)
     '''
-    x = int(accel["x"])
-    y = int(accel["y"])
-    col = int(x * sensitivity)
-    row = int(y * sensitivity)
+    x = round(accel["x"], 1)
+    y = round(accel["y"], 1)
+    col = int(-x * sensitivity)
+    row = int(-y * sensitivity)
 
     # sets the center of the board as the 0 point
     col = col + 3
