@@ -107,8 +107,9 @@ try:
     green = [0, 255, 0]
     black = [0, 0, 0]
     sensitivity = int(sys.argv[1])
+    run(sensitivity, green, black)
 except:
     print("Please enter sensitivity")
 
-run(sensitivity, green, black)
+
 
