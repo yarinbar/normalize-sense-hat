@@ -63,8 +63,8 @@ def showBalancePoint(sensitivity, color, background_color):
     4 - shows from -0.25(m/s^2) to 0.25(m/s^2)
     8 - shows from -0.5(m/s^2) to 0.5(m/s^2)
     '''
-    x = accel["x"]
-    y = accel["y"]
+    x = int(accel["x"])
+    y = int(accel["y"])
     col = int(x * sensitivity)
     row = int(y * sensitivity)
 
