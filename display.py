@@ -103,9 +103,12 @@ def run(sensitivity, color, background_color):
 
 
 
+try:
+    green = [0, 255, 0]
+    black = [0, 0, 0]
+    sensitivity = int(sys.argv[1])
+except:
+    print("Please enter sensitivity")
 
-green = [0, 255, 0]
-black = [0, 0, 0]
-sensitivity = int(sys.argv[1])
 run(sensitivity, green, black)
 
