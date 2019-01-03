@@ -1,6 +1,6 @@
 
 from sense_hat import SenseHat
-from math import cos, sin
+from math import cos, sin, sqrt
 import sys
 
 sense = SenseHat()
@@ -43,7 +43,11 @@ def findLegalPosition(position):
     return position
 
 
-
+def getSign(x):
+    if x >= 0:
+        return 1
+    else:
+        return -1
 
 def calcBalancePoint(sensitivity):
 
@@ -57,8 +61,8 @@ def calcBalancePoint(sensitivity):
     x = round(accel["x"], 1)
     y = round(accel["y"], 1)
 
-    col = int(-x * sensitivity)
-    row = int(-y * sensitivity)
+    col = int(sqrt(abs(x)) * sensitivity) * getSign(x)
+    row = int(sqrt(abs(y)) * sensitivity) * getSign(y)
 
     # sets the center of the board as the 0 point
     col = col + 3
@@ -108,6 +112,6 @@ def run(sensitivity, color, background_color):
 
 green = [0, 255, 0]
 black = [0, 0, 0]
-sensitivity = float(sys.argv[1])
+sensitivity = int(sys.argv[1])
 run(sensitivity, green, black)
 
