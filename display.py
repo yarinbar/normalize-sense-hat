@@ -12,13 +12,15 @@ def drawSquare(balance, color, background_color):
     row = balance[0]
     col = balance[1]
 
-    row_legal = row < 7 and row >= 0
-    col_legal = col < 7 and col >= 0
+    if row > 6:
+        row = 6
+    if row < 0:
+        row = 0
 
-    # if the row or the col is illegal find a legal position
-    if not row_legal or not col_legal:
-        row = findLegalPosition(row)
-        col = findLegalPosition(col)
+    if col > 6:
+        col = 6
+    if col < 0:
+        col = 0
 
 
     #TODO: make dynamic color
@@ -30,17 +32,6 @@ def drawSquare(balance, color, background_color):
 
     sense.set_pixels(board)
 
-
-
-def findLegalPosition(position):
-
-    while(position < 0):
-        position = 0
-
-    while(position >= 7):
-        position = 7
-
-    return position
 
 
 def calcBalancePoint(sensitivity):
