@@ -5,9 +5,12 @@ import sys
 
 sense = SenseHat()
 
-def drawSquare(row, col, color, background_color):
+def drawSquare(balance, color, background_color):
 
-    board = [background_color for i in range(8)]
+    board = [background_color for i in range(64)]
+
+    row = balance[0]
+    col = balance[1]
 
     row_legal = row < 7 and row >= 0
     col_legal = col < 7 and col >= 0
@@ -42,7 +45,7 @@ def findLegalPosition(position):
 
 
 
-def showBalancePoint(sensitivity, color, background_color):
+def calcBalancePoint(sensitivity):
 
     accel = sense.get_accelerometer_raw()
 
@@ -62,7 +65,9 @@ def showBalancePoint(sensitivity, color, background_color):
     col = col + 3
     row = row + 3
 
-    drawSquare(row, col, color, background_color)
+    balance = (row, col)
+
+    return
 
 
 def normalizePi():
@@ -88,7 +93,8 @@ def normalizePi():
 def run(sensitivity, color, background_color):
     try:
         while True:
-            showBalancePoint(sensitivity, color, background_color)
+            balance = calcBalancePoint(sensitivity)
+            drawSquare(balance, color, background_color)
     except KeyboardInterrupt:
         sense.clear()
     except ArithmeticError:
