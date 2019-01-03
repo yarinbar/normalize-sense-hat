@@ -105,13 +105,11 @@ def run(sensitivity, color, background_color):
     except MemoryError:
         print("memory error")
 
-def main():
-    green = [0, 255, 0]
-    black = [0, 0, 0]
-    sensitivity = sys.argv[1]
-
-    run(sensitivity, green, black)
 
 
 
-main()
+green = [0, 255, 0]
+black = [0, 0, 0]
+sensitivity = sys.argv[1]
+run(sensitivity, green, black)
+
