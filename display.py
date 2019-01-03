@@ -35,10 +35,10 @@ def drawSquare(balance, color, background_color):
 def findLegalPosition(position):
 
     while(position < 0):
-        position += 1
+        position = 0
 
     while(position >= 7):
-        position -= 1
+        position = 7
 
     return position
 
