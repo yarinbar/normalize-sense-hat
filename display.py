@@ -53,6 +53,8 @@ def showBalancePoint(sensitivity, color, background_color):
     '''
     x = round(accel["x"], 1)
     y = round(accel["y"], 1)
+    print("x = ", x)
+    print("y = ", y)
     col = int(-x * sensitivity)
     row = int(-y * sensitivity)
 
