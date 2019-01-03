@@ -56,8 +56,7 @@ def calcBalancePoint(sensitivity):
     '''
     x = round(accel["x"], 1)
     y = round(accel["y"], 1)
-    print("x = ", x)
-    print("y = ", y)
+
     col = int(-x * sensitivity)
     row = int(-y * sensitivity)
 
@@ -67,7 +66,7 @@ def calcBalancePoint(sensitivity):
 
     balance = (row, col)
 
-    return
+    return balance
 
 
 def normalizePi():
@@ -109,6 +108,6 @@ def run(sensitivity, color, background_color):
 
 green = [0, 255, 0]
 black = [0, 0, 0]
-sensitivity = sys.argv[1]
+sensitivity = float(sys.argv[1])
 run(sensitivity, green, black)
 
